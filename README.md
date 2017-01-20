@@ -32,7 +32,9 @@ cmsenv
 3. Clone newest version of Herwig7 interface
   * If you would like to contribute it is maybe better to fork my repository and to clone your own version since you can then push stuff to your repository and make use of pull requests.
   ```
-  git clone git@github.com:mharrend/herwig7interface.git
+  cd $CMSSW_BASE
+  rm -rf src
+  git clone git@github.com:mharrend/herwig7interface.git src
   ```
 4. Sourcing of local Herwig7 installation 
   * Has to be done in each new terminal
