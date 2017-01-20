@@ -12,7 +12,7 @@ Table of Contents
       * [GeneratorInterface/Herwig7Interface](#generatorinterfaceherwig7interface)
     * [Matchbox interface: Available external matrix element providers](#matchbox-interface-available-external-matrix-element-providers)
     * [Current workflow](#current-workflow)
-    * [Implemented options of the Herwig UI](#availible-options)
+    * [Implemented options of the Herwig UI](#implemented-options-of-the-herwig-ui)
 
 
 ## Setup of Herwig7 interface (Status of 15.11.2016)
