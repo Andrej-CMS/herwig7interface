@@ -81,7 +81,7 @@ process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
 # Other statements
 process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, 'MCRUN2_71_V1::All', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, '90X_mcRun2_asymptotic_v5', '')
 
 process.generator = cms.EDFilter("Herwig7GeneratorFilter",
     hwpp_cmsDefaults = cms.vstring('+hwpp_basicSetup', 
@@ -89,7 +89,7 @@ process.generator = cms.EDFilter("Herwig7GeneratorFilter",
     run = cms.string('InterfaceTest'),
    # dumpConfig = cms.untracked.string('HerwigConfig.in'),
     repository = cms.string('HerwigDefaults.rpo'),
-    dataLocation = cms.string('${HERWIGPATH}'),
+    dataLocation = cms.string('${HERWIGPATH::-6}'),
     hwpp_setParticlesStableForDetector = cms.vstring('set /Herwig/Particles/mu-:Stable Stable', 
         'set /Herwig/Particles/mu+:Stable Stable', 
         'set /Herwig/Particles/Sigma-:Stable Stable', 
