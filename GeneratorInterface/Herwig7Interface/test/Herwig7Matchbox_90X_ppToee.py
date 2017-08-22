@@ -81,15 +81,15 @@ process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
 # Other statements
 process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, '90X_mcRun2_asymptotic_v5', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:mcrun_2', '')
 
 process.generator = cms.EDFilter("Herwig7GeneratorFilter",
     hwpp_cmsDefaults = cms.vstring('+hwpp_basicSetup', 
         '+hwpp_setParticlesStableForDetector'),
     run = cms.string('InterfaceMatchboxTest'),
-   # dumpConfig = cms.untracked.string('HerwigConfig.in'),
-    repository = cms.string('HerwigDefaults.rpo'),
-    dataLocation = cms.string('${HERWIGPATH}'),
+    dumpConfig = cms.untracked.string('HerwigConfig.in'),
+    repository = cms.string('${HERWIGPATH}/HerwigDefaults.rpo'),
+    dataLocation = cms.string('${HERWIGPATH:-6}'),
     hwpp_setParticlesStableForDetector = cms.vstring('set /Herwig/Particles/mu-:Stable Stable', 
         'set /Herwig/Particles/mu+:Stable Stable', 
         'set /Herwig/Particles/Sigma-:Stable Stable', 
@@ -124,7 +124,8 @@ process.generator = cms.EDFilter("Herwig7GeneratorFilter",
         'Matchbox',
 	'hwpp_cmsDefaults'),
     filterEfficiency = cms.untracked.double(1.0),
-    Matchbox = cms.vstring('read Matchbox/PPCollider.in',
+    Matchbox = cms.vstring( 'read snippets/Matchbox.in',
+	'read snippets/PPCollider.in',
 	'cd /Herwig/EventHandlers',
 	'set EventHandler:LuminosityFunction:Energy 13000*GeV',
 	'## Model assumptions',
