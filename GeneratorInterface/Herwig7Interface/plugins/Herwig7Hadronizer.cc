@@ -30,7 +30,7 @@ namespace CLHEP {
 class Herwig7Hadronizer : public Herwig7Interface, public gen::BaseHadronizer {
     public:
 	Herwig7Hadronizer(const edm::ParameterSet &params);
-	virtual ~Herwig7Hadronizer();
+	~Herwig7Hadronizer();
 
 	bool readSettings( int ) { return true; }
 	bool initializeForInternalPartons();

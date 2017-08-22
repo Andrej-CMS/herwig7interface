@@ -68,7 +68,7 @@ Herwig7Interface::Herwig7Interface(const edm::ParameterSet &pset) :
 		ofstream cfgDump(dumpConfig_.c_str(), ios_base::trunc);
 }
 
-Herwig7Interface::~Herwig7Interface()
+Herwig7Interface::~Herwig7Interface () noexcept
 {
 	if (eg_)
 		eg_->finalize();
@@ -256,12 +256,12 @@ double Herwig7Interface::pthat(const ThePEG::EventPtr &event)
 	TmpTransform<tSubProPtr> tmp(sub, Utilities::getBoostToCM(
 							sub->incoming()));
 
-	double pthat = (*sub->outgoing().begin())->momentum().perp();
+	double pthat = (*sub->outgoing().begin())->momentum().perp() / ThePEG::GeV;
 	for(PVector::const_iterator it = sub->outgoing().begin();
 	    it != sub->outgoing().end(); ++it)
-		pthat = std::min(pthat, (*it)->momentum().perp());
+		pthat = std::min<double>(pthat, (*it)->momentum().perp() / ThePEG::GeV);
 
-	return pthat / ThePEG::GeV;
+	return pthat;
 }
 
 
