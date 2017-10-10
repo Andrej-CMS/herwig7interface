@@ -81,7 +81,7 @@ process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
 # Other statements
 process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:mcrun_2', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc', '')
 
 process.generator = cms.EDFilter("Herwig7GeneratorFilter",
     hwpp_cmsDefaults = cms.vstring('+hwpp_basicSetup', 
@@ -139,7 +139,7 @@ process.generator = cms.EDFilter("Herwig7GeneratorFilter",
 	'do Factory:Process p p -> e+ e-',
 	'# read Matchbox/MadGraph-GoSam.in',
 	'# read Matchbox/MadGraph-MadGraph.in',
-	'# read Matchbox/MadGraph-OpenLoops.in',
+	'read Matchbox/MadGraph-OpenLoops.in',
 	'set /Herwig/Cuts/ChargedLeptonPairMassCut:MinMass 60*GeV',
 	'set /Herwig/Cuts/ChargedLeptonPairMassCut:MaxMass 120*GeV',
 	'cd /Herwig/MatrixElements/Matchbox',
