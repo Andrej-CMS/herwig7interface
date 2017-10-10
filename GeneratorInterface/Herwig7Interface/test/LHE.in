@@ -52,7 +52,8 @@ set /Herwig/Partons/PPExtractor:SecondPDF /Herwig/Partons/LHAPDF
 # this is STRONGLY DISCOURAGED without retuning the MPI parameters
 # create the reader and set cuts
 create ThePEG::LesHouchesFileReader LesHouchesReader
-set LesHouchesReader:FileName /nfs/dust/cms/user/asaibel/PhDWorkFolder/Herwig7InterfaceDev/NewBuild/CMSSW_9_0_3/src/GeneratorInterface/Herwig7Interface/test/cmsgrid_final.lhe.gz
+# the file can be compressed (gziped,bziped)
+set LesHouchesReader:FileName cmsgrid_final.lhe.gz
 set LesHouchesReader:AllowedToReOpen No
 set LesHouchesReader:InitPDFs 0
 set LesHouchesReader:Cuts /Herwig/Cuts/NoCuts
